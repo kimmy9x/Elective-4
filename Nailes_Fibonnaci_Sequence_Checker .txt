@@ -1,0 +1,26 @@
+import 'dart:io';
+bool chkFib(List<int> list){
+  for(int a = 2; a < list.length; a++){ 
+   if ((list[a - 1] + list[a - 2]) != list[a]){
+      return false;
+   }      
+  }
+   return true;
+}
+void main() {
+	print("Fibbonacci Checker\n");
+  List<int> list = new List();
+  print("Enter size of list(size must be greater than 3 less than 10): ");
+  int size = int.parse(stdin.readLineSync());
+  if(size < 3 || size > 10){
+    print("Invalid size");
+  }else{
+    for(int a = 0; a < size;a++){
+      int x = a+1;
+      print("Enter number $x: ");
+      list.add(int.parse(stdin.readLineSync()));
+    }
+    print(list);
+    print(chkFib(list));
+  }  
+}
